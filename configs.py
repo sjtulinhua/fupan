@@ -1,5 +1,8 @@
 # select which database(s) to use for the analysis
-database = ['tdx', 'futu', 'tushare']
+# database = ['tdx', 'futu', 'tushare']
+database = ['futu']
+
+database_futu = '/Users/linhua/PycharmProjects/Fupan/database/futu.db'
 
 sheet_zt = '/Users/linhua/OneDrive/Stock/tdx/fupan/data/export-当日涨停'
 sheet_zt_num = 0
@@ -13,24 +16,27 @@ sheet_drps_num = 2
 sheet_srps = '/Users/linhua/OneDrive/Stock/tdx/fupan/data/export-RPS50和20大于85'
 sheet_srps_num = 3
 
-dest_sheet_tdx = '/Users/linhua/Local invest data/Fupan/fupan.xlsx'
-backup_sheet_tdx = '/Users/linhua/Local invest data/Fupan/fupan_bk.xlsx'
+dest_xlsx_tdx = '/Users/linhua/PycharmProjects/fupan/output/fupan.xlsx'
+backup_xlsx_tdx = '/Users/linhua/PycharmProjects/fupan/output/fupan_bk.xlsx'
 
-dest_sheet_futu = '/Users/linhua/Local invest data/Fupan/fupan_futu.xlsx'
-backup_sheet_futu = '/Users/linhua/Local invest data/Fupan/fupan_futu_bk.xlsx'
+dest_xlsx_futu = '/Users/linhua/PycharmProjects/fupan/output/fupan_futu.xlsx'
+backup_xlsx_futu = '/Users/linhua/PycharmProjects/fupan/output/fupan_futu_bk.xlsx'
+exclude_concepts_futu = ['新疆', '福建', '河南', '贵州', '山西', '江西', '宁夏', '江苏', '辽宁', '海南', '青海', '云南', '湖北',
+                         '河北', '山东', '广西', '浙江', '吉林', '重庆', '甘肃', '西藏', '湖南', '天津', '上海', '安徽', '广东',
+                         '黑龙江', '四川', '陕西', '北京', '深圳特区', '内蒙古', '融资融券', '转融券标的', '深股通', '沪股通']
 
-dest_sheet_tushare = '/Users/linhua/Local invest data/Fupan/fupan_tushare.xlsx'
-backup_sheet_tushare = '/Users/linhua/Local invest data/Fupan/fupan_tushare_bk.xlsx'
+dest_xlsx_tushare = '/Users/linhua/Local invest data/Fupan/fupan_tushare.xlsx'
+backup_xlsx_tushare = '/Users/linhua/Local invest data/Fupan/fupan_tushare_bk.xlsx'
 
-board_size = dict(银行=36, 全国地产=35, 生物制药=49, 环境保护=78, 区域地产=64, 酒店餐饮=9, 运输设备=23, 综合类=35, 建筑工程=89, 玻璃=19, 家用电器=44, 文教休闲=37,
-                  其他商业=13, 元器件=184, IT设备=36, 其他建材=28, 汽车服务=11, 火力发电=32, 医药商业=25, 汽车配件=141, 广告包装=41, 轻工机械=10, 新型电力=13,
-                  多元金融=31, 饲料=17, 电气设备=176, 房产服务=9, 石油加工=8, 铅锌=13, 农业综合=26, 批发业=7, 通信设备=120, 旅游景点=12, 港口=19, 机场=4,
-                  石油贸易=6, 空运=8, 医疗保健=85, 商贸代理=21, 化学制药=104, 影视音像=46, 工程机械=28, 软件服务=199, 证券=44, 化纤=26, 水泥=21, 专用机械=142,
-                  供气供热=29, 农药化肥=43, 机床制造=14, 百货=43, 中成药=69, 路桥=19, 造纸=25, 食品=64, 黄金=13, 化工原料=167, 矿物制品=19, 水运=12,
-                  日用化工=11, 机械基件=74, 汽车整车=23, 煤炭开采=29, 铁路=5, 染料涂料=22, 白酒=19, 林业=4, 水务=11, 水力发电=21, 互联网=72, 旅游服务=12,
-                  纺织=39, 铝=25, 保险=7, 园区开发=16, 小金属=33, 铜=13, 普钢=25, 航空=24, 特种钢=10, 种植业=14, 出版业=23, 焦炭加工=7, 啤酒=7, 公路=7,
-                  超市连锁=11, 钢加工=24, 渔业=8, 农用机械=9, 软饮料=6, 化工机械=10, 塑料=48, 红黄酒=10, 橡胶=12, 家居用品=40, 摩托车=7, 电器仪表=65, 服饰=56,
-                  仓储物流=38, 纺织机械=10, 电器连锁=2, 装修装饰=26, 半导体=61, 电信运营=9, 石油开采=18, 乳制品=12, 商品城=3, 公共交通=8, 船舶=7, 陶瓷=6)
+board_size_tdx = dict(银行=36, 全国地产=35, 生物制药=49, 环境保护=78, 区域地产=64, 酒店餐饮=9, 运输设备=23, 综合类=35, 建筑工程=89, 玻璃=19, 家用电器=44, 文教休闲=37,
+                      其他商业=13, 元器件=184, IT设备=36, 其他建材=28, 汽车服务=11, 火力发电=32, 医药商业=25, 汽车配件=141, 广告包装=41, 轻工机械=10, 新型电力=13,
+                      多元金融=31, 饲料=17, 电气设备=176, 房产服务=9, 石油加工=8, 铅锌=13, 农业综合=26, 批发业=7, 通信设备=120, 旅游景点=12, 港口=19, 机场=4,
+                      石油贸易=6, 空运=8, 医疗保健=85, 商贸代理=21, 化学制药=104, 影视音像=46, 工程机械=28, 软件服务=199, 证券=44, 化纤=26, 水泥=21, 专用机械=142,
+                      供气供热=29, 农药化肥=43, 机床制造=14, 百货=43, 中成药=69, 路桥=19, 造纸=25, 食品=64, 黄金=13, 化工原料=167, 矿物制品=19, 水运=12,
+                      日用化工=11, 机械基件=74, 汽车整车=23, 煤炭开采=29, 铁路=5, 染料涂料=22, 白酒=19, 林业=4, 水务=11, 水力发电=21, 互联网=72, 旅游服务=12,
+                      纺织=39, 铝=25, 保险=7, 园区开发=16, 小金属=33, 铜=13, 普钢=25, 航空=24, 特种钢=10, 种植业=14, 出版业=23, 焦炭加工=7, 啤酒=7, 公路=7,
+                      超市连锁=11, 钢加工=24, 渔业=8, 农用机械=9, 软饮料=6, 化工机械=10, 塑料=48, 红黄酒=10, 橡胶=12, 家居用品=40, 摩托车=7, 电器仪表=65, 服饰=56,
+                      仓储物流=38, 纺织机械=10, 电器连锁=2, 装修装饰=26, 半导体=61, 电信运营=9, 石油开采=18, 乳制品=12, 商品城=3, 公共交通=8, 船舶=7, 陶瓷=6)
 
 # board_size = {
 #     '银行':         36,
